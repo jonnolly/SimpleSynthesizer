@@ -13,15 +13,26 @@ namespace SimpleSynth
 
         public ICommand GenerateSound { get { return new DelegateCommand(_generateSound, null); } }
 
+        private float _frequency = 240f;
+        public float Frequency { get
+            {
+                return _frequency;
+            }
+            set
+            {
+                Console.WriteLine("setting to :" + value);
+                SetProperty(ref _frequency, value);
+            }
+        }
+
         private void _generateSound(object commandParameter)
         {
             short[] wave = new short[SAMPLE_RATE];
             byte[] binaryWave = new byte[SAMPLE_RATE * sizeof(short)];
 
-            float frequency = 240f;
             for (int i = 0; i < SAMPLE_RATE; i++)
             {
-                wave[i] = Convert.ToInt16(short.MaxValue * Math.Sin(((Math.PI * 2 * frequency) / SAMPLE_RATE) * i ));
+                wave[i] = Convert.ToInt16(short.MaxValue * Math.Sin(((Math.PI * 2 * Frequency) / SAMPLE_RATE) * i ));
             }
 
             Buffer.BlockCopy(wave, 0, binaryWave, 0, wave.Length * sizeof(short));
