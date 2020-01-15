@@ -21,6 +21,12 @@ namespace Factory
                 wave = WaveFormGenerator.Sine(frequency, SAMPLE_RATE);
             else if (_waveForm == WaveForm.Noise)
                 wave = WaveFormGenerator.Noise(SAMPLE_RATE);
+            else if (_waveForm == WaveForm.Square)
+                wave = WaveFormGenerator.Square(frequency, SAMPLE_RATE);
+            else if (_waveForm == WaveForm.Saw)
+                wave = WaveFormGenerator.Saw(frequency, SAMPLE_RATE);
+            else if (_waveForm == WaveForm.Triangle)
+                wave = WaveFormGenerator.Triangle((short)frequency, SAMPLE_RATE);
             else
                 wave = WaveFormGenerator.Sine(frequency, SAMPLE_RATE);
 
