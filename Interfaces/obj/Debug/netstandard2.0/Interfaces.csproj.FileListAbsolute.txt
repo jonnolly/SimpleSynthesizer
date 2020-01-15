@@ -25,9 +25,9 @@ Z:\Coding\SimpleSynth\Interfaces\bin\Debug\netstandard2.0\Accessibility.xml
 Z:\Coding\SimpleSynth\Interfaces\bin\Debug\netstandard2.0\System.Security.xml
 Z:\Coding\SimpleSynth\Interfaces\bin\Debug\netstandard2.0\System.Windows.Forms.xml
 Z:\Coding\SimpleSynth\Interfaces\bin\Debug\netstandard2.0\System.Runtime.Serialization.Formatters.Soap.xml
+Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.csprojAssemblyReference.cache
 Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.AssemblyInfoInputs.cache
 Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.AssemblyInfo.cs
 Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.csproj.CopyComplete
 Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.dll
 Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.pdb
-Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.csprojAssemblyReference.cache

@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="SoundGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WaveFormGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
