@@ -11,17 +11,21 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Slider 
+        <local:Oscillator Grid.ColumnSpan="2" />
+
+
+        <Slider Grid.Row="1"
             Value="{Binding Frequency, Mode=OneWayToSource}" Minimum="240" Maximum="1000"
             Width="500" Grid.ColumnSpan="2"
-                HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <Button Grid.ColumnSpan="2" Grid.Row="1" Command="{Binding GenerateSound}">Generate sound</Button>
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label Grid.Row="2" Content="Frequency: "/>
         <Label Grid.Row="2" Grid.Column="1" Content="{Binding Frequency, Mode=OneWay}"/>
+        <Button Grid.Row="3" x:Name="btnGenerateSound" Grid.ColumnSpan="2" Command="{Binding GenerateSound}">Generate sound</Button>
     </Grid>
 </Window>

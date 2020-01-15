@@ -89,3 +89,11 @@ Z:\Coding\SimpleSynth\Tests\obj\Debug\netcoreapp3.1\Tests.AssemblyInfo.cs
 Z:\Coding\SimpleSynth\Tests\obj\Debug\netcoreapp3.1\Tests.csproj.CopyComplete
 Z:\Coding\SimpleSynth\Tests\obj\Debug\netcoreapp3.1\Tests.dll
 Z:\Coding\SimpleSynth\Tests\obj\Debug\netcoreapp3.1\Tests.pdb
+Z:\Coding\SimpleSynth\Tests\bin\Debug\netcoreapp3.1\ClassCreator.dll
+Z:\Coding\SimpleSynth\Tests\bin\Debug\netcoreapp3.1\Interfaces.dll
+Z:\Coding\SimpleSynth\Tests\bin\Debug\netcoreapp3.1\SimpleSynth.exe
+Z:\Coding\SimpleSynth\Tests\bin\Debug\netcoreapp3.1\Interfaces.pdb
+Z:\Coding\SimpleSynth\Tests\bin\Debug\netcoreapp3.1\SimpleSynth.pdb
+Z:\Coding\SimpleSynth\Tests\bin\Debug\netcoreapp3.1\SimpleSynth.exe.config
+Z:\Coding\SimpleSynth\Tests\bin\Debug\netcoreapp3.1\ClassCreator.pdb
+Z:\Coding\SimpleSynth\Tests\obj\Debug\netcoreapp3.1\Tests.csprojAssemblyReference.cache

@@ -8,9 +8,11 @@
     ".NETCoreApp,Version=v3.1": {
       "Tests/1.0.0": {
         "dependencies": {
+          "Interfaces": "1.0.0",
           "MSTest.TestAdapter": "2.0.0",
           "MSTest.TestFramework": "2.0.0",
           "Microsoft.NET.Test.Sdk": "16.2.0",
+          "SimpleSynth": "1.0.0",
           "coverlet.collector": "1.0.1"
         },
         "runtime": {
@@ -1323,6 +1325,28 @@
             "fileVersion": "1.0.24212.1"
           }
         }
+      },
+      "ClassCreator/1.0.0": {
+        "dependencies": {
+          "Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "ClassCreator.dll": {}
+        }
+      },
+      "Interfaces/1.0.0": {
+        "runtime": {
+          "Interfaces.dll": {}
+        }
+      },
+      "SimpleSynth/1.0.0": {
+        "dependencies": {
+          "ClassCreator": "1.0.0",
+          "Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "SimpleSynth.exe": {}
+        }
       }
     }
   },
@@ -2066,6 +2090,21 @@
       "sha512": "sha512-Zm2BdeanuncYs3NhCj4c9e1x3EXFzFBVv2wPEc/Dj4ZbI9R8ecLSR5frAsx4zJCPBtKQreQ7Q/KxJEohJZbfzA==",
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
+    },
+    "ClassCreator/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SimpleSynth/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace SimpleSynth
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Oscillator.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Oscillator : UserControl
     {
-        public MainWindow()
+        public Oscillator()
         {
             InitializeComponent();
         }

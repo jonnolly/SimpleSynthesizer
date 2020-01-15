@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Interfaces;
 using System.Windows;
+using Factory;
 
 namespace SimpleSynth
 {
@@ -13,5 +9,14 @@ namespace SimpleSynth
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            MainWindow mainWindow = new MainWindow();
+            SoundGenerator soundGenerator = new SoundGenerator();
+            MainWindowVM mainWindowViewModel = new MainWindowVM(soundGenerator);
+            mainWindow.DataContext = mainWindowViewModel;
+            mainWindow.Show();
+        }
+
     }
 }
