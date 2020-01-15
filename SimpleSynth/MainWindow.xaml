@@ -5,9 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleSynth"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        KeyDown="keyDownEventHandler">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -17,8 +19,8 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <local:Oscillator Grid.ColumnSpan="2" />
 
+        <local:Oscillator Grid.ColumnSpan="2" />
 
         <Slider Grid.Row="1"
             Value="{Binding Frequency, Mode=OneWayToSource}" Minimum="240" Maximum="1000"
@@ -27,5 +29,6 @@
         <Label Grid.Row="2" Content="Frequency: "/>
         <Label Grid.Row="2" Grid.Column="1" Content="{Binding Frequency, Mode=OneWay}"/>
         <Button Grid.Row="3" x:Name="btnGenerateSound" Grid.ColumnSpan="2" Command="{Binding GenerateSound}">Generate sound</Button>
+        <Label Grid.Row="4" Content="To play C major, use Keys: Q W E R T Y U I" />
     </Grid>
 </Window>

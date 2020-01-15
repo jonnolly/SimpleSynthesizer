@@ -11,12 +11,14 @@ namespace SimpleSynth
         public MainWindowVM(ISoundGenerator soundGenerator)
         {
             _soundGenerator = soundGenerator;
+            VirtualKeyboard.NotePressed += VirtualKeyboard_NotePressed;
 
         }
 
         public ICommand GenerateSound { get { return new DelegateCommand(_generateSound, null); } }
 
         public ICommand SetWaveType { get { return new DelegateCommand(_setWaveType, null); } }
+        
 
         private float _frequency = 240f;
         public float Frequency { get
@@ -28,6 +30,11 @@ namespace SimpleSynth
                 Console.WriteLine("setting to :" + value);
                 SetProperty(ref _frequency, value);
             }
+        }
+
+        private void VirtualKeyboard_NotePressed(object sender, float frequency)
+        {
+            _soundGenerator.GenerateSound(frequency);
         }
 
         private void _generateSound(object commandParameter)

@@ -24,5 +24,10 @@ namespace SimpleSynth
         {
             InitializeComponent();
         }
+
+        protected void keyDownEventHandler(object sender, KeyEventArgs e)
+        {
+            VirtualKeyboard.PressKey(e.Key);
+        }
     }
 }
