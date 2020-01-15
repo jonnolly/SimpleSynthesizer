@@ -1,0 +1,8 @@
+Z:\Coding\SimpleSynth\ClassCreator\bin\Debug\ClassCreator.dll
+Z:\Coding\SimpleSynth\ClassCreator\bin\Debug\ClassCreator.pdb
+Z:\Coding\SimpleSynth\ClassCreator\bin\Debug\Interfaces.dll
+Z:\Coding\SimpleSynth\ClassCreator\bin\Debug\Interfaces.pdb
+Z:\Coding\SimpleSynth\ClassCreator\obj\Debug\ClassCreator.csprojAssemblyReference.cache
+Z:\Coding\SimpleSynth\ClassCreator\obj\Debug\ClassCreator.csproj.CopyComplete
+Z:\Coding\SimpleSynth\ClassCreator\obj\Debug\ClassCreator.dll
+Z:\Coding\SimpleSynth\ClassCreator\obj\Debug\ClassCreator.pdb

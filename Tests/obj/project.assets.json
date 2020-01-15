@@ -2029,6 +2029,41 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "ClassCreator/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Interfaces": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ClassCreator.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ClassCreator.dll": {}
+        }
+      },
+      "Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Interfaces.dll": {}
+        }
+      },
+      "SimpleSynth/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "ClassCreator": "1.0.0",
+          "Interfaces": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SimpleSynth.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SimpleSynth.dll": {}
+        }
       }
     }
   },
@@ -6864,13 +6899,30 @@
         "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "ClassCreator/1.0.0": {
+      "type": "project",
+      "path": "../ClassCreator/ClassCreator.csproj",
+      "msbuildProject": "../ClassCreator/ClassCreator.csproj"
+    },
+    "Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Interfaces/Interfaces.csproj",
+      "msbuildProject": "../Interfaces/Interfaces.csproj"
+    },
+    "SimpleSynth/1.0.0": {
+      "type": "project",
+      "path": "../SimpleSynth/SimpleSynth.csproj",
+      "msbuildProject": "../SimpleSynth/SimpleSynth.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Interfaces >= 1.0.0",
       "MSTest.TestAdapter >= 2.0.0",
       "MSTest.TestFramework >= 2.0.0",
       "Microsoft.NET.Test.Sdk >= 16.2.0",
+      "SimpleSynth >= 1.0.0",
       "coverlet.collector >= 1.0.1"
     ]
   },
@@ -6899,7 +6951,14 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "Z:\\Coding\\SimpleSynth\\Interfaces\\Interfaces.csproj": {
+              "projectPath": "Z:\\Coding\\SimpleSynth\\Interfaces\\Interfaces.csproj"
+            },
+            "Z:\\Coding\\SimpleSynth\\SimpleSynth\\SimpleSynth.csproj": {
+              "projectPath": "Z:\\Coding\\SimpleSynth\\SimpleSynth\\SimpleSynth.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

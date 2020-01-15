@@ -6,9 +6,10 @@ namespace Tests
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void GivenAppHasStarted_WhenGenerateSoundIsSelected_SoundIsGenerated()
         {
             // Arrange
+            var testEnvironment = new TestEnvironment();
 
             // Act
 
