@@ -7,18 +7,18 @@ namespace SimpleSynth
     public class MainWindowVM : ViewModelBase
     {
         private ISoundGenerator _soundGenerator;
+        private string _currentWaveFormName;
 
         public MainWindowVM(ISoundGenerator soundGenerator)
+
         {
             _soundGenerator = soundGenerator;
             VirtualKeyboard.NotePressed += VirtualKeyboard_NotePressed;
-
         }
 
         public ICommand GenerateSound { get { return new DelegateCommand(_generateSound, null); } }
 
-        public ICommand SetWaveType { get { return new DelegateCommand(_setWaveType, null); } }
-        
+        public Array WaveForms { get { return Enum.GetValues(typeof(WaveForm)); } }
 
         private float _frequency = 240f;
         public float Frequency { get
@@ -32,6 +32,19 @@ namespace SimpleSynth
             }
         }
 
+        public string CurrentWaveFormName
+        {
+            set
+            {
+                SetProperty(ref _currentWaveFormName, value);
+
+                // set wave form in back-end
+                WaveForm waveForm;
+                if(Enum.TryParse(value, out waveForm))
+                    _soundGenerator.SetWaveForm(waveForm);
+            }
+        }
+
         private void VirtualKeyboard_NotePressed(object sender, float frequency)
         {
             _soundGenerator.GenerateSound(frequency);
@@ -40,16 +53,6 @@ namespace SimpleSynth
         private void _generateSound(object commandParameter)
         {
             _soundGenerator.GenerateSound(Frequency);
-        }
-
-        private void _setWaveType(object commandParameter)
-        {
-            // default will be Sine
-            WaveForm waveForm = WaveForm.Sine;
-
-            Enum.TryParse(commandParameter.ToString(), out waveForm);
-
-            _soundGenerator.SetWaveForm(waveForm);
         }
     }
 }

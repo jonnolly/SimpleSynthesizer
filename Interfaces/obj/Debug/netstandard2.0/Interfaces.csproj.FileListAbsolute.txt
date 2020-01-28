@@ -30,3 +30,4 @@ Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.AssemblyInf
 Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.csproj.CopyComplete
 Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.dll
 Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.pdb
+Z:\Coding\SimpleSynth\Interfaces\obj\Debug\netstandard2.0\Interfaces.csprojAssemblyReference.cache
