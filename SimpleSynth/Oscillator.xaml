@@ -5,33 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SimpleSynth"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800"
-             xmlns:converters="clr-namespace:SimpleSynth.Converters">
-    <UserControl.Resources>
-        <converters:ComboBoxItemToWaveForm x:Key="comboBoxItemToWaveForm"/>
-    </UserControl.Resources>
+             d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="0">Wave Form: </Label>
-        <!--<ComboBox Grid.Row="1" HorizontalAlignment="Left" SelectedValue="{Binding CurrentWaveForm, Mode=TwoWay, Converter={StaticResource comboBoxItemToWaveForm},ConverterParameter=test}" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem>Sine</ComboBoxItem>
-            <ComboBoxItem>Square</ComboBoxItem>
-            <ComboBoxItem>Saw</ComboBoxItem>
-            <ComboBoxItem>Triangle</ComboBoxItem>
-            <ComboBoxItem>Noise</ComboBoxItem>
-        </ComboBox>-->
+        <Label Grid.Column="0">Wave Form:</Label>
         <ComboBox Grid.Column="1" HorizontalAlignment="Left" ItemsSource="{Binding WaveForms}" SelectedItem="{Binding CurrentWaveFormName}" VerticalAlignment="Top" Width="120"/>
-
-        <!--<Button x:Name="Sine" Command="{Binding SetWaveType}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Mode=Self}}" Content="Sine"/>
-            <Button Grid.Column="1" Command="{Binding SetWaveType}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Mode=Self}}" Content="Square" x:Name="Square"/>
-            <Button Grid.Column="2" Command="{Binding SetWaveType}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Mode=Self}}" Content="Saw" x:Name="Saw"/>
-            <Button Grid.Column="3" Command="{Binding SetWaveType}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Mode=Self}}" Content="Triangle" x:Name="Triangle"/>
-            <Button Grid.Column="4" Command="{Binding SetWaveType}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Mode=Self}}" Content="Noise" x:Name="Noise"/>
-
-            <Button Content="Click" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="50" Margin="230,101,0,0" IsEnabled="{Binding Path=Text, ElementName=txtFirstName,Converter={StaticResource valueconverter}}"></Button>-->
     </Grid>
 </UserControl>

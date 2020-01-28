@@ -20,7 +20,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <local:Oscillator Grid.ColumnSpan="2" />
+        <local:Oscillator DataContext="{Binding Oscillator}" Grid.ColumnSpan="2" />
 
         <Slider Grid.Row="1"
             Value="{Binding Frequency, Mode=OneWayToSource}" Minimum="240" Maximum="1000"

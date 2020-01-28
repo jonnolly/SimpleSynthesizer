@@ -1,5 +1,6 @@
 ﻿using Interfaces;
 using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 
 namespace SimpleSynth
@@ -7,18 +8,15 @@ namespace SimpleSynth
     public class MainWindowVM : ViewModelBase
     {
         private ISoundGenerator _soundGenerator;
-        private string _currentWaveFormName;
 
         public MainWindowVM(ISoundGenerator soundGenerator)
-
         {
             _soundGenerator = soundGenerator;
             VirtualKeyboard.NotePressed += VirtualKeyboard_NotePressed;
+            Oscillator = new OscillatorVM(soundGenerator);
         }
 
         public ICommand GenerateSound { get { return new DelegateCommand(_generateSound, null); } }
-
-        public Array WaveForms { get { return Enum.GetValues(typeof(WaveForm)); } }
 
         private float _frequency = 240f;
         public float Frequency { get
@@ -32,18 +30,7 @@ namespace SimpleSynth
             }
         }
 
-        public string CurrentWaveFormName
-        {
-            set
-            {
-                SetProperty(ref _currentWaveFormName, value);
-
-                // set wave form in back-end
-                WaveForm waveForm;
-                if(Enum.TryParse(value, out waveForm))
-                    _soundGenerator.SetWaveForm(waveForm);
-            }
-        }
+        public OscillatorVM Oscillator { get; }
 
         private void VirtualKeyboard_NotePressed(object sender, float frequency)
         {

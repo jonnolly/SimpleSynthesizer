@@ -5,9 +5,6 @@ Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\App.g.cs
 Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\GeneratedInternalTypeHelper.g.cs
 Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\SimpleSynth_MarkupCompile.cache
 Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\SimpleSynth_MarkupCompile.lref
-Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\Oscillator.baml
-Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\SimpleSynth.exe
-Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\SimpleSynth.pdb
 Z:\Coding\SimpleSynth\SimpleSynth\bin\Debug\SimpleSynth.exe.config
 Z:\Coding\SimpleSynth\SimpleSynth\bin\Debug\SimpleSynth.exe
 Z:\Coding\SimpleSynth\SimpleSynth\bin\Debug\SimpleSynth.pdb
@@ -20,7 +17,10 @@ Z:\Coding\SimpleSynth\SimpleSynth\bin\Debug\Interfaces.pdb
 Z:\Coding\SimpleSynth\SimpleSynth\bin\Debug\Microsoft.Expression.Interactions.xml
 Z:\Coding\SimpleSynth\SimpleSynth\bin\Debug\System.Windows.Interactivity.xml
 Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\MainWindow.baml
+Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\Oscillator.baml
 Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\SimpleSynth.g.resources
 Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\SimpleSynth.Properties.Resources.resources
 Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\SimpleSynth.csproj.GenerateResource.cache
 Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\SimpleSynth.csproj.CopyComplete
+Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\SimpleSynth.exe
+Z:\Coding\SimpleSynth\SimpleSynth\obj\Debug\SimpleSynth.pdb

@@ -61,11 +61,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Converters\ComboBoxItemToWaveForm.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Oscillator.xaml.cs">
       <DependentUpon>Oscillator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OscillatorVM.cs" />
     <Compile Include="ViewModelBase.cs" />
     <Compile Include="VirtualKeyboard.cs" />
     <Page Include="MainWindow.xaml">
