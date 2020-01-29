@@ -14,21 +14,23 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <local:Oscillator DataContext="{Binding Oscillator}" Grid.ColumnSpan="2" />
+        <local:Oscillator Grid.Row="0" DataContext="{Binding Oscillator1}" Grid.ColumnSpan="2" />
+        <local:Oscillator Grid.Row="1" DataContext="{Binding Oscillator2}" Grid.ColumnSpan="2" />
 
-        <Slider Grid.Row="1"
+        <Slider Grid.Row="2"
             Value="{Binding Frequency, Mode=OneWayToSource}" Minimum="240" Maximum="1000"
             Width="500" Grid.ColumnSpan="2"
                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Grid.Row="2" Content="Frequency: "/>
-        <Label Grid.Row="2" Grid.Column="1" Content="{Binding Frequency, Mode=OneWay}"/>
-        <Button Grid.Row="3" x:Name="btnGenerateSound" Grid.ColumnSpan="2" Command="{Binding GenerateSound}">Generate sound</Button>
-        <Label Grid.Row="4" Content="To play C major, use Keys: Q W E R T Y U I" />
+        <Label Grid.Row="3" Content="Frequency: "/>
+        <Label Grid.Row="3" Grid.Column="1" Content="{Binding Frequency, Mode=OneWay}"/>
+        <Button Grid.Row="4" x:Name="btnGenerateSound" Grid.ColumnSpan="2" Command="{Binding GenerateSound}">Generate sound</Button>
+        <Label Grid.Row="5" Content="To play C major, use Keys: Q W E R T Y U I" />
     </Grid>
 </Window>

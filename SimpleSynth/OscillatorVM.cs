@@ -1,21 +1,11 @@
 ﻿using Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleSynth
 {
     public class OscillatorVM : ViewModelBase
     {
         private string _currentWaveFormName;
-        private ISoundGenerator _soundGenerator;
-
-        public OscillatorVM(ISoundGenerator soundGenerator)
-        {
-            _soundGenerator = soundGenerator;
-        }
 
         public Array WaveForms { get { return Enum.GetValues(typeof(WaveForm)); } }
 
@@ -28,8 +18,26 @@ namespace SimpleSynth
                 // set wave form in back-end
                 WaveForm waveForm;
                 if (Enum.TryParse(value, out waveForm))
-                    _soundGenerator.SetWaveForm(waveForm);
+                    OscillatorData.CurrentWaveForm = waveForm;
             }
         }
+
+        // volume of oscillator signal in the overall mix
+        public float Volume
+        {
+            get { return OscillatorData.Volume; }
+            set { OscillatorData.Volume = value; }
+        }
+
+        public float OctaveOffset
+        {
+            get { return OscillatorData.OctaveOffset; }
+            set { OscillatorData.OctaveOffset = value; }
+        }
+
+        public bool IsEnabled { get; set; }
+
+        // Oscillator data to be passed into the model
+        public OscillatorParams OscillatorData { get; private set; } = new OscillatorParams();
     }
 }

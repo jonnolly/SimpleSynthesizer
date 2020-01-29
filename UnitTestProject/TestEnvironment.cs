@@ -3,6 +3,7 @@ using NSubstitute;
 using SimpleSynth;
 using System.Windows.Controls;
 using System.Windows;
+using System.Collections.Generic;
 
 namespace Tests
 {
@@ -44,7 +45,7 @@ namespace Tests
         // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         public TestEnvironment AssertThatSoundIsGenerated(float frequency)
         {
-            _soundGeneratorMock.Received().GenerateSound(Arg.Any<float>());
+            _soundGeneratorMock.Received().GenerateSound(Arg.Any<float>(), Arg.Any<List<OscillatorParams>>());
 
             return this;
         }

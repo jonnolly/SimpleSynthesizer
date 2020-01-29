@@ -13,10 +13,11 @@ namespace SimpleSynth
         {
             _soundGenerator = soundGenerator;
             VirtualKeyboard.NotePressed += VirtualKeyboard_NotePressed;
-            Oscillator = new OscillatorVM(soundGenerator);
+            Oscillator1 = new OscillatorVM();
+            Oscillator2 = new OscillatorVM();
         }
 
-        public ICommand GenerateSound { get { return new DelegateCommand(_generateSound, null); } }
+        public ICommand GenerateSound { get { return new DelegateCommand(() => _generateSound(), null); } }
 
         private float _frequency = 240f;
         public float Frequency { get
@@ -30,16 +31,18 @@ namespace SimpleSynth
             }
         }
 
-        public OscillatorVM Oscillator { get; }
+        public OscillatorVM Oscillator1 { get; }
+
+        public OscillatorVM Oscillator2 { get; }
 
         private void VirtualKeyboard_NotePressed(object sender, float frequency)
         {
-            _soundGenerator.GenerateSound(frequency);
+            _soundGenerator.GenerateSound(frequency, Oscillator1.OscillatorData, Oscillator2.OscillatorData);
         }
 
-        private void _generateSound(object commandParameter)
+        private void _generateSound()
         {
-            _soundGenerator.GenerateSound(Frequency);
+            _soundGenerator.GenerateSound(Frequency, Oscillator1.OscillatorData, Oscillator2.OscillatorData);
         }
     }
 }

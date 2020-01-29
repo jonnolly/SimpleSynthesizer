@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Media;
 using ClassCreator;
@@ -12,25 +13,46 @@ namespace Factory
         private const short BITS_PER_SAMPLE = 16;
         private WaveForm _waveForm = WaveForm.Sine;
 
-        public void GenerateSound(float frequency)
+        private short[] GetWave(WaveForm waveForm, float frequency)
         {
-            byte[] binaryWave = new byte[SAMPLE_RATE * sizeof(short)];
             short[] wave = new short[SAMPLE_RATE];
 
-            if (_waveForm == WaveForm.Sine)
-                wave = WaveFormGenerator.Sine(frequency, SAMPLE_RATE);
-            else if (_waveForm == WaveForm.Noise)
-                wave = WaveFormGenerator.Noise(SAMPLE_RATE);
-            else if (_waveForm == WaveForm.Square)
-                wave = WaveFormGenerator.Square(frequency, SAMPLE_RATE);
-            else if (_waveForm == WaveForm.Saw)
-                wave = WaveFormGenerator.Saw(frequency, SAMPLE_RATE);
-            else if (_waveForm == WaveForm.Triangle)
-                wave = WaveFormGenerator.Triangle((short)frequency, SAMPLE_RATE);
-            else
-                wave = WaveFormGenerator.Sine(frequency, SAMPLE_RATE);
+            switch (waveForm)
+            {
+                case WaveForm.Noise:
+                    return WaveFormGenerator.Noise(SAMPLE_RATE);
+                
+                case WaveForm.Square:
+                    return WaveFormGenerator.Square(frequency, SAMPLE_RATE);
+                
+                case WaveForm.Saw:
+                    return WaveFormGenerator.Saw(frequency, SAMPLE_RATE);
+                
+                case WaveForm.Triangle:
+                    return WaveFormGenerator.Triangle((short)frequency, SAMPLE_RATE);
 
-            Buffer.BlockCopy(wave, 0, binaryWave, 0, wave.Length * sizeof(short));
+                case WaveForm.Sine:
+                default:
+                    return WaveFormGenerator.Sine(frequency, SAMPLE_RATE);
+            }
+        }
+
+        // todo: Changes OscillatorParams to List<OscillatorParams> and filter out for isEnabled before sending it here
+        public void GenerateSound(float frequency, OscillatorParams oscillator1, OscillatorParams oscillator2)
+        {
+
+            byte[] binaryWave = new byte[SAMPLE_RATE * sizeof(short)];
+            short[] wave1 = GetWave(oscillator1.CurrentWaveForm, frequency);
+            short[] wave2 = GetWave(oscillator2.CurrentWaveForm, frequency);
+
+            short[] resultantWave = new short[SAMPLE_RATE];
+
+            for (int i = 0; i < SAMPLE_RATE; i++)
+            {
+                resultantWave[i] = (short)((wave1[i] + wave2[i]) / 2);
+            }
+
+            Buffer.BlockCopy(resultantWave, 0, binaryWave, 0, resultantWave.Length * sizeof(short));
 
             using (MemoryStream memoryStream = new MemoryStream())
             using (BinaryWriter binaryWriter = new BinaryWriter(memoryStream))
