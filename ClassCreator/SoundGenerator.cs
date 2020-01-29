@@ -12,7 +12,6 @@ namespace Factory
     {
         private const int SAMPLE_RATE = 44100;
         private const short BITS_PER_SAMPLE = 16;
-        private WaveForm _waveForm = WaveForm.Sine;
 
         private short[] GetWave(WaveForm waveForm, float frequency)
         {
@@ -39,12 +38,23 @@ namespace Factory
         }
 
         // todo: change to only have one loop. this method is not very efficient.
-        public void GenerateSound(float frequency, List<OscillatorParams> oscillatorData)
+        public void GenerateSound(float frequency, int octave, List<OscillatorParams> oscillatorData)
         {
+            // Octave sheet:
+            // 3    ->   8
+            // 2    ->   4
+            // 1    ->   2
+            // 0    ->   1
+            // -1   ->  0.5
+            // -2   ->  0.25
+
+            double octaveFactor = Math.Pow(2, octave);
+
+            short frequencyWithOctave = (short)(frequency * octaveFactor);
 
             byte[] binaryWave = new byte[SAMPLE_RATE * sizeof(short)];
 
-            var waves = oscillatorData.Select(oscillator => GetWave(oscillator.CurrentWaveForm, frequency)).ToList();
+            var waves = oscillatorData.Select(oscillator => GetWave(oscillator.CurrentWaveForm, frequencyWithOctave)).ToList();
 
             short[] resultantWave = new short[SAMPLE_RATE];
 

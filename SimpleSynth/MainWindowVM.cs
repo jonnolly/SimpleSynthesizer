@@ -7,6 +7,23 @@ using System.Windows.Input;
 
 namespace SimpleSynth
 {
+    // cool combination:
+    // sine, triangle, saw
+
+    // next steps:
+
+    // - Add envelope (Attack, Sustain, Release etc)
+
+    //  - Add 'current key' and have NUM PAD 1 - 9 to be C - C (in key)
+    //  - +/- could be change key
+
+    // - Add octave shifts
+
+    //  - Add all keys (Z - #)
+    //      Q is middle C
+    //      Z is octave below
+    //      S is C# below
+
     public class MainWindowVM : ViewModelBase
     {
         private ISoundGenerator _soundGenerator;
@@ -57,18 +74,35 @@ namespace SimpleSynth
             return oscillatorParams;
         }
 
+        private int _currentOctave = 0;
+        public int CurrentOctave
+        {
+            get
+            {
+                return _currentOctave;
+            }
+            set
+            {
+                SetProperty(ref _currentOctave, value);
+            }
+        }
+
+        public ICommand PreviousOctave { get { return new DelegateCommand(x => CurrentOctave--, null); } }
+
+        public ICommand NextOctave { get { return new DelegateCommand(x => CurrentOctave++, null); } }
+
         private void VirtualKeyboard_NotePressed(object sender, float frequency)
         {
             var oscillatorData = GetActiveOscillatorData();
             if(oscillatorData.Count > 0)
-                _soundGenerator.GenerateSound(frequency, oscillatorData);
+                _soundGenerator.GenerateSound(frequency, CurrentOctave, oscillatorData);
         }
 
         private void _generateSound()
         {
             var oscillatorData = GetActiveOscillatorData();
             if (oscillatorData.Count > 0)
-                _soundGenerator.GenerateSound(Frequency, oscillatorData);
+                _soundGenerator.GenerateSound(Frequency, CurrentOctave, oscillatorData);
         }
     }
 }

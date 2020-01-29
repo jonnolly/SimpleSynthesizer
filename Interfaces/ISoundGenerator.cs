@@ -4,6 +4,6 @@ namespace Interfaces
 {
     public interface ISoundGenerator
     {
-        void GenerateSound(float frequency, List<OscillatorParams> oscillatorData);
+        void GenerateSound(float frequency, int octave, List<OscillatorParams> oscillatorData);
     }
 }

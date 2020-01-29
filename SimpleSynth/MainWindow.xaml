@@ -35,6 +35,15 @@
         <Label Grid.Row="2" Content="Frequency: "/>
         <Label Grid.Row="2" Grid.Column="1" Content="{Binding Frequency, Mode=OneWay}"/>
         <Button Grid.Row="3" x:Name="btnGenerateSound" Grid.ColumnSpan="2" Command="{Binding GenerateSound}">Generate sound</Button>
-        <Label Grid.Row="4" Content="To play C major, use Keys: Q W E R T Y U I" />
+        <StackPanel Grid.Row="4" Orientation="Vertical">
+            <Label  Content="To use virtual keyboard, use Keys: Q 2 W 3 E R 5 T 6 Y 7 U I" />
+            <Label>Octave:</Label>
+            <StackPanel Orientation="Horizontal">
+                <Button Command="{Binding PreviousOctave}">Previous</Button>
+                <Label Content="{Binding CurrentOctave}"/>
+                <Button Command="{Binding NextOctave}">Next</Button>
+
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
