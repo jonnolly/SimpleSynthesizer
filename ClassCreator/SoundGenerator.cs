@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Media;
 using ClassCreator;
 using Interfaces;
@@ -37,19 +38,25 @@ namespace Factory
             }
         }
 
-        // todo: Changes OscillatorParams to List<OscillatorParams> and filter out for isEnabled before sending it here
-        public void GenerateSound(float frequency, OscillatorParams oscillator1, OscillatorParams oscillator2)
+        // todo: change to only have one loop. this method is not very efficient.
+        public void GenerateSound(float frequency, List<OscillatorParams> oscillatorData)
         {
 
             byte[] binaryWave = new byte[SAMPLE_RATE * sizeof(short)];
-            short[] wave1 = GetWave(oscillator1.CurrentWaveForm, frequency);
-            short[] wave2 = GetWave(oscillator2.CurrentWaveForm, frequency);
+
+            var waves = oscillatorData.Select(oscillator => GetWave(oscillator.CurrentWaveForm, frequency)).ToList();
 
             short[] resultantWave = new short[SAMPLE_RATE];
 
             for (int i = 0; i < SAMPLE_RATE; i++)
             {
-                resultantWave[i] = (short)((wave1[i] + wave2[i]) / 2);
+                short waveSum = 0;
+                foreach (var wave in waves)
+                {
+                    waveSum += wave[i];
+                }
+
+                resultantWave[i] = (short)((waveSum) / oscillatorData.Count);
             }
 
             Buffer.BlockCopy(resultantWave, 0, binaryWave, 0, resultantWave.Length * sizeof(short));
@@ -77,11 +84,6 @@ namespace Factory
 
                 new SoundPlayer(memoryStream).Play();
             }
-        }
-
-        public void SetWaveForm(WaveForm waveForm)
-        {
-            _waveForm = waveForm;
         }
     }
 }

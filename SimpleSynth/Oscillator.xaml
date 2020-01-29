@@ -10,8 +10,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Column="0">Wave Form:</Label>
+        <Label Grid.Column="0" Content="{Binding Title}"/>
         <ComboBox Grid.Column="1" HorizontalAlignment="Left" ItemsSource="{Binding WaveForms}" SelectedItem="{Binding CurrentWaveFormName}" VerticalAlignment="Top" Width="120"/>
+        <CheckBox Grid.Column="2" IsChecked="{Binding IsEnabled, Mode=TwoWay}"/>
     </Grid>
 </UserControl>

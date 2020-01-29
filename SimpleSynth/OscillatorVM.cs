@@ -5,21 +5,29 @@ namespace SimpleSynth
 {
     public class OscillatorVM : ViewModelBase
     {
-        private string _currentWaveFormName;
-
         public Array WaveForms { get { return Enum.GetValues(typeof(WaveForm)); } }
 
-        public string CurrentWaveFormName
+        public OscillatorVM(string title, bool defaultEnabled = false)
         {
+            Title = title;
+            IsEnabled = defaultEnabled;
+        }
+
+        public WaveForm CurrentWaveFormName
+        {
+            get { return OscillatorData.CurrentWaveForm; }
             set
             {
-                SetProperty(ref _currentWaveFormName, value);
-
                 // set wave form in back-end
-                WaveForm waveForm;
-                if (Enum.TryParse(value, out waveForm))
-                    OscillatorData.CurrentWaveForm = waveForm;
+                OscillatorData.CurrentWaveForm = value;
             }
+        }
+
+        private string _title;
+        public string Title
+        {
+            get { return _title; }
+            set { SetProperty(ref _title, value); }
         }
 
         // volume of oscillator signal in the overall mix
